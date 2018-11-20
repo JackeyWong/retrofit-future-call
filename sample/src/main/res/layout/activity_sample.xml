@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              tools:context="com.retrofit.futurecall.sample.SampleActivity">
+
+    <LinearLayout
+        android:id="@+id/ll_top"
+        android:padding="10dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/btn_request_full_data"
+            android:text="@string/full_data"
+            android:onClick="onButtonClick"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/btn_request_result"
+            android:text="@string/result"
+            android:onClick="onButtonClick"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_result"
+        android:layout_below="@id/ll_top"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</RelativeLayout>

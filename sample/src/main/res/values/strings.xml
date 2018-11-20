@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">futurecall</string>
+    <string name="result">result</string>
+    <string name="full_data">Full data</string>
+</resources>

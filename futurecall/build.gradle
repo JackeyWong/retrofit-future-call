@@ -1,0 +1,52 @@
+apply plugin: 'com.android.library'
+apply plugin: 'maven'
+
+Integer LIB_VERSION = 10000
+project.group = 'com.retrofit'
+project.version = genVersionName(false, LIB_VERSION)
+
+android {
+    compileSdkVersion 27
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 27
+        versionCode LIB_VERSION
+        versionName project.version
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+static String genVersionName(snapshot, version) {
+    int sys = version / 10000
+    int app = version % 10000
+    int sysCodeSub = sys % 100
+    int appCode = app / 100
+    int appCodeSub = app % 100
+    String name = sysCodeSub + "." + appCode + "." + appCodeSub
+    if (Boolean.valueOf(snapshot)) {
+        name += "-SNAPSHOT"
+    }
+    return name
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    compileOnly 'com.android.support:support-annotations:28.0.0'
+    compileOnly 'com.squareup.retrofit2:retrofit:2.4.0'
+    compileOnly 'com.squareup.okhttp3:okhttp:3.11.0'
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: mavenRelease) {
+                authentication(userName: nexusUsername, password: nexusPassword)
+            }
+        }
+    }
+}
