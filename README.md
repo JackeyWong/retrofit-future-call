@@ -103,7 +103,7 @@ Is it very easy, to sample project see more detail.
 Developers
 =
 
-**Jie Wang** ([@wangjie2013](https://github.com/wangjie2013))
+**Jackey Wong** ([@JackeyWong](https://github.com/JackeyWong))
 
 
 Thinks
